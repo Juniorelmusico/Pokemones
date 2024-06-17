@@ -3,6 +3,7 @@ using Pokemones.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,5 +23,12 @@ namespace Pokemones.Services
             Debug.WriteLine(json);
             return lista_pokemons.results;
         }
+    }
+
+    public async Task<CaracteristicasPokemon> DevuelveCaracteristicasPokemon(string url)
+    {
+        String json = await _httpClient.GetStringAsync(url);
+        CaracteristicasPokemon caracteristicas = JsonConvert.DeserializeObject<CaracteristicasPokemon>(json);
+        return caracteristicas;
     }
 }

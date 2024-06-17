@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pokemones.Models
 {
-    public class Abilities
+    public class CaracteristicasPokemon
     {
-        public bool is_hidden {  get; set; }
-        public Ability ability { get; set; }
+        public List<Abilities> abilities { get; set; }
+
+        public Sprite sprite { get; set; }
     }
 }

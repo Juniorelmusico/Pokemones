@@ -23,7 +23,7 @@ namespace Pokemones
         public async void MostrarInfoPokemon(object sender, SelectedItemChangedEventArgs e)
         {
             PokemonInfo poke_info = (PokemonInfo)e.SelectedItem;
-            Navigation.PushAsync(new ResumenPokemon(poke_info.url));
+            Navigation.PushAsync(new ResumenPokemon(poke_info));
         }
     }
 
