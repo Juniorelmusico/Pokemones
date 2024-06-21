@@ -1,4 +1,4 @@
-using Newtonsoft.Json;
+
 using Pokemones.Models;
 using Pokemones.Services;
 using System.Diagnostics;
@@ -7,24 +7,23 @@ namespace Pokemones;
 
 public partial class ResumenPokemon : ContentPage
 {
-    public ResumenPokemon( string url)
+    public ResumenPokemon(PokemonItem pokemon)
     {
         InitializeComponent();
-        CargaPokemon(url);
+        CargaPokemon(pokemon);
     }
 
-    public async void CargaPokemon (string url)
-    { 
-        PokemonServices poke_services = new PokemonServices();
-        CaracteristicasPokemon = await poke_services.DevuelveCaracteristicasPokemon(url);
-        Debug.WriteLine(JsonConvert.SerializeObject(CaracteristicasPokemon));
-        ImagePokemon.Source = CaracteristicasPokemon.sprite.front_default;
+    public async void CargaPokemon(PokemonItem pokemon)
+    {
+        PokemonServices pokemonServices = new PokemonServices();
+        var pokemon_info = await pokemonServices.GetPokemonInfo(pokemon);
+        string image = pokemon_info.sprites.front_default;
+        PokemonImage.Source = image;
 
-        string habilidades = "";
-        foreach (var ability in CaracteristicasPokemon.abilities)
-        {
-            habilidades += ability.ability.name + " | ";
-        }
-       Habilidades.Text = habilidades;
+
+        var nombresHabilidades = pokemon_info.abilities
+        .Select(a => a.ability.Name)
+        .ToList();
+        ListPokemons.ItemsSource = nombresHabilidades;
     }
 }

@@ -5,10 +5,21 @@
              Title="ResumenPokemon">
     <VerticalStackLayout HorizontalOptions="Center">
         <Image
-         x:Name="ImagePokemon"
-         HeightRequest="300"/>
-        <Label
-         x:Name="Habilidades"
-        FontSize="Large"/>
+           x:Name="PokemonImage"
+           HeightRequest="300"
+               ></Image>
+        <HorizontalStackLayout>
+            <ListView x:Name="ListPokemons">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Label Text="{Binding}"/>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </HorizontalStackLayout>
+        
+       
     </VerticalStackLayout>
 </ContentPage>

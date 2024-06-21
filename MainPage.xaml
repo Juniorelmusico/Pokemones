@@ -7,18 +7,17 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-
-            <ListView x:Name="ListaPokemones" ItemSelected="MostrarInfoPokemon">
+            <ListView x:Name="ListPokemones" ItemSelected="MostrarInfoPokemon">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout>
                                 <Label
-                                Text="{Binding Name}"></Label>
+                                    Text="{Binding Name}"></Label>
                                 <Label
-                                Text="{Binding url}"></Label>
+                                    Text="{Binding url}"></Label>
                             </StackLayout>
- 
+                            
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

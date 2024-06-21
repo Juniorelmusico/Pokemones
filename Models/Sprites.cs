@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Pokemones.Models
 {
-    public class CaracteristicasPokemon
+    public class Sprites
     {
-        public List<Abilities> abilities { get; set; }
+        public string front_default{ get; set; }
+        public string back_default { get; set; }
 
-        public Sprite sprite { get; set; }
     }
 }

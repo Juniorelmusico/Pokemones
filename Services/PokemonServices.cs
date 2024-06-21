@@ -7,10 +7,11 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Pokemones.Services
 {
-    public class PokemonServices
+    internal class PokemonServices
     {
         public async Task<List<PokemonItem>> DevuelveListadoPokemones()
         {
@@ -18,17 +19,20 @@ namespace Pokemones.Services
             HttpClient client = new HttpClient();
             string json = await client.GetStringAsync(url);
             ListPokemons lista_pokemons = JsonConvert.DeserializeObject<ListPokemons>(json);
-
             Debug.WriteLine("SIII");
             Debug.WriteLine(json);
-            return lista_pokemons.results;
+            return lista_pokemons.Results;
         }
-    }
 
-    public async Task<CaracteristicasPokemon> DevuelveCaracteristicasPokemon(string url)
-    {
-        String json = await _httpClient.GetStringAsync(url);
-        CaracteristicasPokemon caracteristicas = JsonConvert.DeserializeObject<CaracteristicasPokemon>(json);
-        return caracteristicas;
+         public async Task<PokemonInfo> GetPokemonInfo(PokemonItem pokemon)
+         {
+            string url = pokemon.url;
+            HttpClient client = new HttpClient();
+            string json = await client.GetStringAsync(url);
+            PokemonInfo pokemon_info = JsonConvert.DeserializeObject<PokemonInfo>(json);
+            Debug.WriteLine("SIII");
+            Debug.WriteLine(json);
+            return pokemon_info;
+         }
     }
 }

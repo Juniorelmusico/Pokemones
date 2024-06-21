@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Pokemones.Models
 {
-    internal class ListPokemons
+    public class ListPokemons
     {
         public int count { get; set; }
-        public List<PokemonItem> results { get; set; }
+        public List<PokemonItem> Results { get; set; }
     }
 }

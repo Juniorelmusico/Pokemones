@@ -8,6 +8,7 @@ namespace Pokemones.Models
 {
     public class PokemonInfo
     {
-        public Sprite sprites {  get; set; }
+        public Sprites sprites {  get; set; }
+        public List<Abilities> abilities { get; set; }
     }
 }
