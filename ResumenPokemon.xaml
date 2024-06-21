@@ -6,7 +6,7 @@
     <VerticalStackLayout HorizontalOptions="Center">
         <Image
            x:Name="PokemonImage"
-           HeightRequest="300"
+           HeightRequest="400"
                ></Image>
         <HorizontalStackLayout>
             <ListView x:Name="ListPokemons">
